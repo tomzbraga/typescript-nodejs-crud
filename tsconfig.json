@@ -1,43 +1,28 @@
 {
-  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
-    // File Layout
-    "rootDir": "./src",
-    "outDir": "./dist",
+    // Estrutura de arquivos
+    "rootDir": "./src",        // Onde ficam os arquivos .ts
+    "outDir": "./dist",        // Onde vão os compilados .js
 
-    // Environment Settings
-    // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "esnext",
+    // Configuração de módulos (CommonJS = mais simples)
+    "module": "commonjs",
+    "target": "ES2020",
+
+    // Tipos e bibliotecas
     "types": ["node"],
-    // For nodejs:
-    // "lib": ["esnext"],
-    // and npm install -D @types/node
+    "lib": ["ES2020"],
 
-    // Other Outputs
-    "sourceMap": true,
-    "declaration": true,
+    // Saídas adicionais
+    "sourceMap": true,         // Mapas para debug
+    "declaration": true,       // Gerar arquivos .d.ts
     "declarationMap": true,
 
-    // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-
-    // Style Options
-    // "noImplicitReturns": true,
-    // "noImplicitOverride": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
-
-    // Recommended Options
+    // Checagem estrita
     "strict": true,
-    // "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true,
-  }
+    "esModuleInterop": true,   // Permite import default de libs CommonJS
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
